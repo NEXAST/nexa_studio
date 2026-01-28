@@ -22,12 +22,12 @@ const serviceData = {
     'photo': {
         title: 'Professional Photography',
         price: 'From 50€ to 300€',
-        images: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg']
+        images: [] // Dodaj slike ako ih imaš
     },
     'video': {
         title: 'Video Editing & Motion Graphics',
         price: 'From 40€ to 400€',
-        images: ['video1.jpg']
+        images: []
     },
     'web': {
         title: 'Web Design & Development',
@@ -38,7 +38,7 @@ const serviceData = {
     'presentation': {
         title: 'Presentation Design',
         price: 'From 30€ to 150€',
-        images: ['pres1.jpg', 'pres2.jpg']
+        images: []
     }
 };
 
@@ -62,18 +62,18 @@ function openModal(serviceKey) {
             const img = document.createElement('img');
             img.src = imgSrc;
             img.alt = data.title;
-            img.onerror = function() { this.style.display='none'; }; // Skriva sliku ako fali
+            img.onerror = function() { this.style.display='none'; }; 
             gallery.appendChild(img);
         });
     }
     
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Stop scrolling
+    document.body.style.overflow = 'hidden'; 
 }
 
 function closeModal() {
     document.getElementById('portfolioModal').style.display = 'none';
-    document.body.style.overflow = 'auto'; // Enable scrolling
+    document.body.style.overflow = 'auto'; 
 }
 
 window.onclick = function(event) {
