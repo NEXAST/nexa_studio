@@ -1,4 +1,22 @@
-/* HERO - Bez slike, samo moderan gradijent */
+:root {
+    --royal-blue: #0A2647;
+    --accent-blue: #144272;
+    --white: #ffffff;
+    --dark: #050A14;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Manrope', sans-serif; line-height: 1.6; color: var(--dark); background: #fdfdfd; scroll-behavior: smooth; }
+
+/* NAV */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; position: fixed; width: 100%; top: 0; background: rgba(255,255,255,0.95); z-index: 1000; backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: bold; color: var(--royal-blue); }
+.logo span { color: #555; }
+.nav-links { list-style: none; display: flex; }
+.nav-links li { margin-left: 30px; }
+.nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; }
+
+/* HERO - Tamni Gradijent umjesto slike */
 .hero { 
     height: 100vh; 
     display: flex; 
@@ -6,33 +24,42 @@
     justify-content: center; 
     text-align: center; 
     position: relative;
-    /* Koristimo tvoju tamno plavu boju u modernom prelivu */
     background: linear-gradient(135deg, #0A2647 0%, #050A14 100%);
-    overflow: hidden;
 }
+.hero-content { position: relative; z-index: 1; color: white; padding: 0 20px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; }
+.hero-text { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.8; }
+.cta-btn { padding: 18px 40px; background: var(--white); color: var(--royal-blue); text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block; }
 
-/* Overlay nam više ne treba jer nema slike, ali ga ostavljamo praznog da ne kvari HTML */
-.hero-overlay { 
-    display: none; 
-}
+/* SERVICES GRID */
+#services { padding: 100px 8%; background: white; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; text-align: center; color: var(--royal-blue); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.service-card { padding: 40px; background: #fff; border: 1px solid #eee; border-radius: 12px; cursor: pointer; transition: 0.3s; text-align: center; }
+.service-card:hover { transform: translateY(-10px); border-color: var(--royal-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.service-card i { font-size: 35px; color: var(--royal-blue); margin-bottom: 20px; }
 
-.hero-content { 
-    position: relative; 
-    z-index: 1; 
-    color: white; 
-    padding: 0 20px; 
-}
+/* MODAL */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; padding: 20px; }
+.modal-content { background: white; margin: 2% auto; padding: 40px; width: 100%; max-width: 900px; border-radius: 15px; position: relative; }
+.close-btn { position: absolute; right: 20px; top: 10px; font-size: 40px; cursor: pointer; color: #333; }
+.modal-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; }
+.modal-gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
+.price-tag { font-size: 1.6rem; font-weight: bold; color: var(--royal-blue); }
+.disclaimer { font-style: italic; color: #666; font-size: 0.9rem; margin-top: 5px; }
+.insta-link { display: inline-block; margin-top: 20px; color: var(--royal-blue); font-weight: 700; text-decoration: none; border-bottom: 2px solid; }
 
-.hero h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: clamp(2.5rem, 6vw, 4rem); 
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-}
+/* CONTACT */
+#contact { padding: 100px 8%; background: var(--dark); color: white; }
+.contact-wrapper { display: flex; gap: 50px; max-width: 1100px; margin: 0 auto; }
+.contact-info { flex: 1; }
+.contact-form-side { flex: 1; }
+#contact-form input, #contact-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 5px; border: none; background: #1a2230; color: white; font-family: inherit; }
+#contact-form button { width: 100%; padding: 15px; background: var(--royal-blue); color: white; border: none; cursor: pointer; font-weight: bold; }
 
-.hero-text { 
-    font-size: 1.2rem; 
-    margin-bottom: 40px; 
-    opacity: 0.8;
-    font-weight: 300;
+.whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; text-decoration: none; }
+
+@media (max-width: 768px) {
+    .contact-wrapper { flex-direction: column; }
+    .nav-links { display: none; }
 }
