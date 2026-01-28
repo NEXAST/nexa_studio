@@ -1,6 +1,6 @@
 const serviceData = {
     'logo': { title: 'Logo Design', price: '50€ - 250€', images: ['logo1.jpg', 'logo2.jpg', 'logo3.jpg'] },
-    'poster': { title: 'Posters', price: '30€ - 100€', images: ['poster1.jpg', 'poster2.jpg', 'poster3.jpg'] },
+    'poster': { title: 'Poster Design', price: '30€ - 100€', images: ['poster1.jpg', 'poster2.jpg', 'poster3.jpg'] },
     'card': { title: 'Business Cards', price: '20€ - 60€', images: ['card1.jpg', 'card2.jpg'] },
     'invitation': { title: 'Invitations', price: '20€ - 80€', images: ['invitation1.jpg', 'invitation2.jpg'] },
     'photo': { title: 'Photography', price: '50€ - 300€', images: [] },
@@ -17,25 +17,23 @@ function openModal(key) {
     gallery.innerHTML = '';
     
     if(key === 'web') {
-        gallery.innerHTML = `<div style="text-align:center; padding: 20px;"><a href="${data.link}" target="_blank" class="cta-btn" style="background: #0A2647; color:white;">Visit Live Site</a></div>`;
+        gallery.innerHTML = `<a href="${data.link}" target="_blank" class="cta-btn" style="background: #0A2647; color:white;">Visit Site</a>`;
     } else {
         data.images.forEach(src => {
             const img = document.createElement('img');
             img.src = src;
-            img.onerror = function() { this.style.display='none'; };
+            // Funkcija za uvećanje na klik
+            img.onclick = () => {
+                document.getElementById('lightboxImg').src = src;
+                document.getElementById('lightbox').style.display = 'flex';
+            };
             gallery.appendChild(img);
         });
     }
     document.getElementById('portfolioModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-    document.getElementById('portfolioModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-window.onclick = function(e) { if(e.target.id === 'portfolioModal') closeModal(); }
+function closeModal() { document.getElementById('portfolioModal').style.display = 'none'; }
 
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
