@@ -30,38 +30,14 @@
     <section id="services">
         <h2 class="section-title">Our Expertise</h2>
         <div class="services-grid">
-            <div class="service-card" onclick="openModal('logo')">
-                <i class="fas fa-pen-nib"></i>
-                <h3>Logo Design & Branding</h3>
-            </div>
-            <div class="service-card" onclick="openModal('poster')">
-                <i class="fas fa-layer-group"></i>
-                <h3>Poster & Flyer Design</h3>
-            </div>
-            <div class="service-card" onclick="openModal('card')">
-                <i class="fas fa-address-card"></i>
-                <h3>Business Card Design</h3>
-            </div>
-            <div class="service-card" onclick="openModal('invitation')">
-                <i class="fas fa-envelope-open-text"></i>
-                <h3>Invitation Design</h3>
-            </div>
-            <div class="service-card" onclick="openModal('photo')">
-                <i class="fas fa-camera"></i>
-                <h3>Professional Photography</h3>
-            </div>
-            <div class="service-card" onclick="openModal('video')">
-                <i class="fas fa-video"></i>
-                <h3>Video Editing & Motion Graphics</h3>
-            </div>
-            <div class="service-card" onclick="openModal('web')">
-                <i class="fas fa-code"></i>
-                <h3>Web Design & Development</h3>
-            </div>
-            <div class="service-card" onclick="openModal('presentation')">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <h3>Presentation Design</h3>
-            </div>
+            <div class="service-card" onclick="openModal('logo')"><i class="fas fa-pen-nib"></i><h3>Logo Design</h3></div>
+            <div class="service-card" onclick="openModal('poster')"><i class="fas fa-layer-group"></i><h3>Poster Design</h3></div>
+            <div class="service-card" onclick="openModal('card')"><i class="fas fa-address-card"></i><h3>Business Cards</h3></div>
+            <div class="service-card" onclick="openModal('invitation')"><i class="fas fa-envelope-open-text"></i><h3>Invitations</h3></div>
+            <div class="service-card" onclick="openModal('photo')"><i class="fas fa-camera"></i><h3>Photography</h3></div>
+            <div class="service-card" onclick="openModal('video')"><i class="fas fa-video"></i><h3>Video Editing</h3></div>
+            <div class="service-card" onclick="openModal('web')"><i class="fas fa-code"></i><h3>Web Design</h3></div>
+            <div class="service-card" onclick="openModal('presentation')"><i class="fas fa-chalkboard-teacher"></i><h3>Presentations</h3></div>
         </div>
     </section>
 
@@ -72,10 +48,13 @@
             <div id="modalGallery" class="modal-gallery"></div>
             <div class="modal-info">
                 <p id="modalPrice" class="price-tag"></p>
-                <p class="disclaimer">Prices are formed individually based on your needs.</p>
-                <a href="https://instagram.com/nexa_studio2" target="_blank" class="insta-link">View more on Instagram @nexa_studio2</a>
+                <p class="disclaimer">Click on image to zoom. Prices are individual.</p>
             </div>
         </div>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+        <img id="lightboxImg" src="" alt="Zoomed">
     </div>
 
     <section id="contact">
@@ -83,22 +62,20 @@
         <div class="contact-wrapper">
             <div class="contact-info">
                 <p><i class="fas fa-phone"></i> +387 65 959 096</p>
-                <p><i class="fas fa-envelope"></i> balkaneditlogoless@gmail.com</p>
-                <p><i class="fab fa-instagram"></i> @nexa_studio2</p>
+                <p><a href="mailto:balkaneditlogoless@gmail.com"><i class="fas fa-envelope"></i> balkaneditlogoless@gmail.com</a></p>
+                <p><a href="https://instagram.com/nexa_studio2" target="_blank"><i class="fab fa-instagram"></i> @nexa_studio2</a></p>
             </div>
             <div class="contact-form-side">
                 <form id="contact-form">
                     <input type="text" id="name" placeholder="Your Name" required>
-                    <textarea id="message" placeholder="Tell us about your project" required></textarea>
+                    <textarea id="message" placeholder="Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/38765959096" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/38765959096" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script src="script.js"></script>
 </body>
