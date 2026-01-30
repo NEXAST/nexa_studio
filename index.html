@@ -38,7 +38,7 @@
 
     <section id="services">
         <h2 class="section-title">Our Expertise</h2>
-        <div class="services-grid">
+        <div class="services-grid" id="servicesGrid">
             <div class="service-card" onclick="openModal('logo')"><i class="fas fa-pen-nib"></i><h3>Logo Design</h3></div>
             <div class="service-card" onclick="openModal('poster')"><i class="fas fa-layer-group"></i><h3>Poster Design</h3></div>
             <div class="service-card" onclick="openModal('card')"><i class="fas fa-address-card"></i><h3>Business Cards</h3></div>
@@ -52,7 +52,7 @@
     </section>
 
     <div id="portfolioModal" class="modal">
-        <div class="modal-content" id="modalTop">
+        <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle"></h2>
             <div id="modalGallery" class="modal-gallery"></div>
@@ -60,26 +60,19 @@
         </div>
     </div>
 
-    <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
-        <img id="lightboxImg" src="" alt="Zoom">
-    </div>
-
     <section id="contact">
-        <h2 class="section-title" style="font-size: 1.5rem;">Quick Contact</h2>
         <div class="whatsapp-form">
-            <textarea id="waMessage" placeholder="Write your message here..."></textarea>
-            <button onclick="sendWhatsApp()" class="gold-cta-btn" style="position: static; margin-top: 10px;">Send via WhatsApp</button>
+            <textarea id="waMessage" placeholder="Upišite vašu poruku ovdje..."></textarea>
+            <button onclick="sendWhatsApp()" class="gold-cta-btn" style="position: static; margin-top: 10px;">Pošalji na WhatsApp</button>
         </div>
-        <div class="contact-info" style="margin-top: 40px;">
+        <div class="contact-info">
             <p><i class="fas fa-phone"></i> +387 65 959 096</p>
-            <p><a href="mailto:nexa.info2@gmail.com"><i class="fas fa-envelope"></i> nexa.info2@gmail.com</a></p>
-            <p><a href="https://instagram.com/nexa_studio2" target="_blank"><i class="fab fa-instagram"></i> @nexa_studio2</a></p>
+            <p><i class="fas fa-envelope"></i> balkaneditlogoless@gmail.com</p>
+            <p><a href="https://instagram.com/nexa_studio2" target="_blank" class="insta-link"><i class="fab fa-instagram"></i> @nexa_studio2</a></p>
         </div>
     </section>
 
-    <a href="https://wa.me/38765959096" class="whatsapp-btn gold-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/38765959096" class="whatsapp-btn gold-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script src="script.js"></script>
 </body>
