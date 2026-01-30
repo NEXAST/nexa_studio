@@ -4,76 +4,55 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Manrope', sans-serif; background-color: var(--dark); color: white; scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: 'Manrope', sans-serif; background-color: var(--dark); color: white; scroll-behavior: smooth; }
 
-/* Navigacija */
+/* NAV - CENTRIRANJE */
 nav { 
     display: flex; justify-content: space-between; align-items: center; 
     padding: 15px 8%; position: fixed; width: 100%; top: 0; 
-    background: rgba(0, 0, 0, 0.95); z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    background: rgba(0, 0, 0, 0.9); z-index: 1000;
 }
 .nav-logo-svg { height: 35px; }
 .nav-links { list-style: none; display: flex; gap: 25px; }
-.nav-links a { text-decoration: none; color: white; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+.nav-links a { text-decoration: none; color: white; font-size: 0.8rem; letter-spacing: 2px; }
 
-/* Hero */
-.hero { height: 100vh; display: flex; align-items: center; justify-content: center; background: #000; position: relative; }
-.corner { position: absolute; width: 80px; height: 80px; border: 1px solid var(--gold); opacity: 0.5; }
-.top-left { top: 30px; left: 30px; border-right: none; border-bottom: none; }
-.top-right { top: 30px; right: 30px; border-left: none; border-bottom: none; }
-.bottom-left { bottom: 30px; left: 30px; border-right: none; border-top: none; }
-.bottom-right { bottom: 30px; right: 30px; border-left: none; border-top: none; }
-
+/* HERO - FIX ZA CENTRIRANJE */
+.hero { 
+    height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    text-align: center; position: relative; padding: 0 20px;
+}
+.hero-content {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
 .main-vector-logo { width: 100px; margin-bottom: 20px; }
-.nexa-title { font-family: 'Cinzel', serif; font-size: 4rem; color: var(--gold); letter-spacing: 10px; }
+.nexa-title { font-family: 'Cinzel', serif; font-size: 4rem; color: var(--gold); letter-spacing: 10px; margin: 0; }
 .main-subtitle { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 3px; }
-.hero-description { font-size: 0.7rem; letter-spacing: 2px; color: #888; margin-top: 20px; max-width: 500px; }
 
-.gold-cta-btn { 
-    margin-top: 30px; display: inline-block; padding: 12px 30px; border: 1px solid var(--gold); 
-    color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; background: none; cursor: pointer; transition: 0.4s;
-}
-.gold-cta-btn:hover { background: var(--gold); color: black; }
-
-/* FIX ZA MODAL */
-.modal { 
-    display: none; 
-    position: fixed; 
-    z-index: 2000; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.98); 
-    overflow-y: auto; /* Omogućava skrolovanje pozadine modala */
-    padding: 20px 0;
-}
+/* MODAL - SMANJIVANJE SLIKA */
+.modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
 .modal-content { 
-    background: #050505; 
-    margin: 20px auto; 
-    padding: 40px; 
-    width: 90%; 
-    max-width: 800px; 
-    border: 1px solid var(--gold); 
-    position: relative;
+    background: #050505; margin: 5% auto; padding: 30px; width: 85%; max-width: 900px; 
+    border: 1px solid var(--gold); text-align: center; 
 }
-.close-btn { position: absolute; right: 20px; top: 10px; font-size: 40px; color: var(--gold); cursor: pointer; }
-.modal-gallery img { width: 100%; margin-bottom: 15px; border: 1px solid #222; }
-.price-tag { font-size: 1.8rem; color: var(--gold); text-align: center; margin-top: 20px; font-family: 'Cinzel', serif; }
-
-/* WhatsApp Forma */
-.whatsapp-form { max-width: 500px; margin: 0 auto; padding: 0 20px; }
-#waMessage { 
-    width: 100%; height: 100px; background: #0a0a0a; border: 1px solid #333; 
-    color: white; padding: 15px; font-family: inherit; resize: none; margin-top: 20px;
+.modal-gallery { 
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; 
 }
-#waMessage:focus { border-color: var(--gold); outline: none; }
+.modal-gallery img { 
+    width: 200px; /* SMANJENA SLIKA */
+    height: auto; border: 1px solid #333; transition: 0.3s; 
+}
+.modal-gallery img:hover { border-color: var(--gold); transform: scale(1.05); }
 
-/* Zlatna WA Ikona */
+/* KONTAKT I INSTAGRAM */
+.insta-link { color: white; text-decoration: none; transition: 0.3s; }
+.insta-link:hover { color: var(--gold); }
+.contact-info p { margin: 10px 0; font-size: 1rem; }
+
+/* WHATSAPP ZLATNO */
 .gold-wa { background: var(--gold) !important; color: black !important; }
 
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 8%; }
-.service-card { padding: 40px; background: #050505; border: 1px solid #111; text-align: center; cursor: pointer; transition: 0.3s; }
+/* KARTICE PONUDE */
+#services { padding: 100px 8%; text-align: center; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.service-card { padding: 30px; background: #0a0a0a; border: 1px solid #1a1a1a; cursor: pointer; transition: 0.3s; }
 .service-card:hover { border-color: var(--gold); }
-.service-card i { font-size: 30px; color: var(--gold); margin-bottom: 15px; }
-
-#contact { padding: 80px 0; text-align: center; border-top: 1px solid #111; }
-.whatsapp-btn { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
