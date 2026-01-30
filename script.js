@@ -1,3 +1,4 @@
+// Podaci o uslugama, cenama i slikama
 const serviceData = {
     'logo': { title: 'Logo Design', price: '25€ - 250€', images: ['logo1.jpg', 'logo2.jpg', 'logo3.jpg'] },
     'poster': { title: 'Poster Design', price: '15€ - 100€', images: ['poster1.jpg', 'poster2.jpg', 'poster3.jpg'] },
@@ -10,37 +11,66 @@ const serviceData = {
     'social': { title: 'Social Media Management', price: 'Po dogovoru', images: [] }
 };
 
+// Funkcija za otvaranje prozora (modala)
 function openModal(key) {
     const data = serviceData[key];
-    document.getElementById('modalTitle').innerText = data.title;
-    document.getElementById('modalPrice').innerText = data.price;
+    const modal = document.getElementById('portfolioModal');
+    const title = document.getElementById('modalTitle');
+    const price = document.getElementById('modalPrice');
     const gallery = document.getElementById('modalGallery');
-    gallery.innerHTML = '';
-    
+
+    // Postavljanje naslova i cene
+    title.innerText = data.title;
+    price.innerText = data.price;
+    gallery.innerHTML = ''; // Čišćenje prethodnih slika
+
+    // Poseban tretman za Web Design (link umesto slika)
     if(key === 'web') {
-        gallery.innerHTML = `<a href="${data.link}" target="_blank" class="gold-cta-btn" style="position:static;">Visit Live Site</a>`;
-    } else if (data.images.length > 0) {
+        gallery.innerHTML = `<div style="width:100%; padding:20px;"><a href="${data.link}" target="_blank" class="gold-cta-btn" style="position:static;">Pogledaj sajt uživo</a></div>`;
+    } 
+    // Ako ima slika, dodaj ih u galeriju
+    else if (data.images && data.images.length > 0) {
         data.images.forEach(src => {
             const img = document.createElement('img');
             img.src = src;
+            img.alt = data.title;
+            // Dodajemo mogućnost klika na sliku da se uveća (opciono)
+            img.onclick = () => window.open(src, '_blank');
             gallery.appendChild(img);
         });
     } else {
-        gallery.innerHTML = '<p style="color: #666;">Uskoro slike...</p>';
+        gallery.innerHTML = '<p style="color: #666; padding: 20px; width: 100%;">Primjeri radova stižu uskoro...</p>';
     }
-    
-    document.getElementById('portfolioModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
+
+    // Prikaži modal i resetuj skrol na vrh
+    modal.style.display = 'block';
+    modal.scrollTop = 0;
+    document.body.style.overflow = 'hidden'; // Zabrani skrolovanje pozadine
 }
 
+// Funkcija za zatvaranje prozora
 function closeModal() {
     document.getElementById('portfolioModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = 'auto'; // Vrati skrolovanje pozadine
 }
 
+// Funkcija za slanje poruke na WhatsApp
 function sendWhatsApp() {
     const msg = document.getElementById('waMessage').value;
+    const phone = "38765959096";
+    
     if(msg.trim() !== "") {
-        window.open(`https://wa.me/38765959096?text=${encodeURIComponent(msg)}`, '_blank');
+        const encodedMsg = encodeURIComponent(msg);
+        window.open(`https://wa.me/${phone}?text=${encodedMsg}`, '_blank');
+    } else {
+        alert("Molimo unesite poruku pre slanja.");
     }
 }
+
+// Zatvori modal ako korisnik klikne bilo gde van crnog okvira
+window.onclick = function(event) {
+    const modal = document.getElementById('portfolioModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+};
