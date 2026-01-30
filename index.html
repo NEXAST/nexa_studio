@@ -29,11 +29,9 @@
 
         <div class="hero-content">
             <img src="nexa studio logo 1.svg" alt="Nexa Logo" class="main-vector-logo">
-            
             <h1 class="nexa-title">NEXA</h1>
             <h2 class="main-subtitle">Graphic Design Studio</h2>
             <p class="hero-description">A FUSION OF CREATIVITY, STYLE, AND CONTEMPORARY DESIGN.</p>
-            
             <a href="#services" class="gold-cta-btn">View Offers</a>
         </div>
     </header>
@@ -54,7 +52,7 @@
     </section>
 
     <div id="portfolioModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" id="modalTop">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle"></h2>
             <div id="modalGallery" class="modal-gallery"></div>
@@ -67,14 +65,21 @@
     </div>
 
     <section id="contact">
-        <div class="contact-info">
+        <h2 class="section-title" style="font-size: 1.5rem;">Quick Contact</h2>
+        <div class="whatsapp-form">
+            <textarea id="waMessage" placeholder="Write your message here..."></textarea>
+            <button onclick="sendWhatsApp()" class="gold-cta-btn" style="position: static; margin-top: 10px;">Send via WhatsApp</button>
+        </div>
+        <div class="contact-info" style="margin-top: 40px;">
             <p><i class="fas fa-phone"></i> +387 65 959 096</p>
             <p><a href="mailto:nexa.info2@gmail.com"><i class="fas fa-envelope"></i> nexa.info2@gmail.com</a></p>
             <p><a href="https://instagram.com/nexa_studio2" target="_blank"><i class="fab fa-instagram"></i> @nexa_studio2</a></p>
         </div>
     </section>
 
-    <a href="https://wa.me/38765959096" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/38765959096" class="whatsapp-btn gold-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
