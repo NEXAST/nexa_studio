@@ -1,75 +1,71 @@
 :root {
     --gold: #d4af37;
-    --dark-bg: #0a0a0a;
+    --dark: #0a0a0a;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Manrope', sans-serif; background-color: var(--dark-bg); color: white; scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background-color: var(--dark); color: white; scroll-behavior: smooth; overflow-x: hidden; }
 
-/* Navigacija */
+/* Navigacija - FIX */
 nav { 
     display: flex; justify-content: space-between; align-items: center; 
-    padding: 15px 8%; position: fixed; width: 100%; top: 0; 
-    background: rgba(10, 10, 10, 0.9); z-index: 1000;
+    padding: 20px 8%; position: fixed; width: 100%; top: 0; 
+    background: rgba(0, 0, 0, 0.8); z-index: 1000; backdrop-filter: blur(5px);
 }
-.nav-logo { height: 40px; }
-.nav-links { list-style: none; display: flex; gap: 25px; }
-.nav-links a { text-decoration: none; color: white; font-size: 0.9rem; letter-spacing: 1px; }
+.nav-brand { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.5rem; letter-spacing: 3px; font-weight: bold; }
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { text-decoration: none; color: white; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+.nav-links a:hover { color: var(--gold); }
 
-/* HERO SEKCIJA (Vizit karta stil) */
+/* HERO - VIZIT KARTA STIL */
 .hero { 
     height: 100vh; display: flex; align-items: center; justify-content: center; 
-    background: radial-gradient(circle, #151515 0%, #000 100%);
-    text-align: center; position: relative; overflow: hidden;
+    background: #000; position: relative; text-align: center;
 }
 
-/* Ukrasni uglovi (Borderi) */
-.corner {
-    position: absolute; width: 150px; height: 150px;
-    border: 2px solid var(--gold); opacity: 0.7;
-}
-.top-left { top: 40px; left: 40px; border-right: none; border-bottom: none; }
-.top-right { top: 40px; right: 40px; border-left: none; border-bottom: none; }
-.bottom-left { bottom: 40px; left: 40px; border-right: none; border-top: none; }
-.bottom-right { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+/* Uglovi */
+.corner { position: absolute; width: 100px; height: 100px; border: 1px solid var(--gold); opacity: 0.6; }
+.top-left { top: 30px; left: 30px; border-right: none; border-bottom: none; }
+.top-right { top: 30px; right: 30px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 30px; left: 30px; border-right: none; border-top: none; }
+.bottom-right { bottom: 30px; right: 30px; border-left: none; border-top: none; }
 
-.hero-logo-img { width: 100px; margin-bottom: 20px; }
-.nexa-title { font-family: 'Cinzel', serif; font-size: 5rem; color: var(--gold); letter-spacing: 15px; margin-bottom: 5px; }
-.main-subtitle { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); letter-spacing: 4px; margin-bottom: 20px; }
-.hero-description { font-size: 0.8rem; letter-spacing: 3px; color: #aaa; margin-bottom: 40px; max-width: 600px; }
+.main-logo-box { margin-bottom: 20px; }
+.nexa-title { font-family: 'Cinzel', serif; font-size: clamp(3rem, 10vw, 6rem); color: var(--gold); letter-spacing: 15px; line-height: 1; }
+.gold-line { width: 150px; height: 1px; background: var(--gold); margin: 15px auto; }
+.main-subtitle { font-family: 'Cinzel', serif; font-size: clamp(1rem, 4vw, 1.8rem); color: var(--gold); letter-spacing: 5px; text-transform: uppercase; }
+.hero-description { font-size: 0.7rem; letter-spacing: 3px; color: #888; margin-top: 20px; max-width: 500px; padding: 0 20px; }
 
 .gold-cta-btn { 
-    padding: 12px 30px; border: 1px solid var(--gold); color: var(--gold);
-    text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; transition: 0.3s;
+    margin-top: 40px; display: inline-block; padding: 12px 35px; border: 1px solid var(--gold); 
+    color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; transition: 0.4s;
 }
 .gold-cta-btn:hover { background: var(--gold); color: black; }
 
-/* Sekcija ponude */
-#services { padding: 100px 8%; background: #050505; }
-.section-title { text-align: center; color: var(--gold); margin-bottom: 60px; font-family: 'Cinzel', serif; letter-spacing: 5px; }
-
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.service-card { 
-    padding: 40px; background: #111; border: 1px solid #222; 
-    text-align: center; cursor: pointer; transition: 0.3s;
-}
-.service-card:hover { border-color: var(--gold); }
+/* SERVICES */
+#services { padding: 100px 8%; }
+.section-title { font-family: 'Cinzel', serif; color: var(--gold); text-align: center; margin-bottom: 60px; letter-spacing: 5px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.service-card { padding: 40px; background: #0f0f0f; border: 1px solid #1a1a1a; text-align: center; cursor: pointer; transition: 0.3s; }
+.service-card:hover { border-color: var(--gold); transform: translateY(-5px); }
 .service-card i { font-size: 30px; color: var(--gold); margin-bottom: 20px; }
-.service-card h3 { font-size: 0.9rem; letter-spacing: 1px; color: #eee; }
+.service-card h3 { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
 
-/* Modal & Lightbox */
-.modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
-.modal-content { background: #111; margin: 5% auto; padding: 40px; width: 90%; max-width: 800px; border: 1px solid var(--gold); position: relative; text-align: center; }
-.close-btn { position: absolute; right: 20px; top: 10px; font-size: 40px; color: var(--gold); cursor: pointer; }
-.modal-gallery img { width: 100%; margin-bottom: 20px; cursor: zoom-in; }
-.price-tag { font-size: 1.8rem; color: var(--gold); margin-top: 20px; font-weight: bold; }
+/* MODAL & LIGHTBOX */
+.modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
+.modal-content { background: #000; margin: 50px auto; padding: 40px; width: 90%; max-width: 800px; border: 1px solid var(--gold); position: relative; }
+.close-btn { position: absolute; right: 20px; top: 10px; font-size: 30px; color: var(--gold); cursor: pointer; }
+.modal-gallery img { width: 100%; margin-bottom: 15px; cursor: zoom-in; object-fit: contain; }
+.price-tag { font-size: 1.5rem; color: var(--gold); font-weight: bold; margin-top: 20px; text-align: center; }
 
-.lightbox { display: none; position: fixed; z-index: 3000; top: 0; left: 0; width: 100%; height: 100%; background: black; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox { display: none; position: fixed; z-index: 3000; top: 0; left: 0; width: 100%; height: 100%; background: #000; align-items: center; justify-content: center; }
 .lightbox img { max-width: 90%; max-height: 90%; border: 1px solid var(--gold); }
 
-/* Kontakt */
-#contact { padding: 60px 8%; text-align: center; border-top: 1px solid #222; }
-.contact-info a { color: white; text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
+/* CONTACT */
+#contact { padding: 60px 8%; text-align: center; border-top: 1px solid #1a1a1a; }
+.contact-info a { color: #888; text-decoration: none; margin: 0 15px; font-size: 0.8rem; letter-spacing: 1px; }
 .contact-info a:hover { color: var(--gold); }
 
 .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; z-index: 1000; text-decoration: none; }
+
+@media (max-width: 768px) { .nexa-title { font-size: 3rem; } .nav-links { display: none; } }
