@@ -28,53 +28,30 @@
             <h1>NEXA</h1>
             <p class="subtitle">GRAPHIC DESIGN STUDIO</p>
             <p class="tagline">A FUSION OF CREATIVITY, STYLE, AND CONTEMPORARY DESIGN</p>
-            <div class="hero-btns">
-                <a href="#offers" class="cta-btn">View Offers</a>
-            </div>
+            <a href="#offers" class="cta-btn">View Offers</a>
         </div>
     </section>
 
     <section id="offers" class="expertise">
         <h2 class="section-title">Our Expertise</h2>
         <div class="grid-container">
-            <div class="card" onclick="openModal('logo')">
-                <i class="fas fa-pen-nib"></i>
-                <h3>Logo Design</h3>
-                <p class="price-hint">Click for details</p>
-            </div>
-            <div class="card" onclick="openModal('poster')">
-                <i class="fas fa-layer-group"></i>
-                <h3>Poster Design</h3>
-                <p class="price-hint">Click for details</p>
-            </div>
-            <div class="card" onclick="openModal('card')">
-                <i class="fas fa-id-card"></i>
-                <h3>Business Cards</h3>
-                <p class="price-hint">Click for details</p>
-            </div>
-            <div class="card" onclick="openModal('video')">
-                <img src="sdfvbf.png" alt="Video" class="card-icon-img">
-                <h3>Video Recording</h3>
-                <p class="price-hint">Click for details</p>
-            </div>
-            <div class="card" onclick="openModal('merch')">
-                <i class="fas fa-mug-hot"></i>
-                <h3>Custom Merch</h3>
-                <p class="price-hint">Click for details</p>
-            </div>
-            <div class="card" onclick="openModal('web')">
-                <i class="fas fa-code"></i>
-                <h3>Web Design</h3>
-                <p class="price-hint">Click for details</p>
-            </div>
+            <div class="card" onclick="openModal('logo')"><i class="fas fa-pen-nib"></i><h3>Logo Design</h3></div>
+            <div class="card" onclick="openModal('poster')"><i class="fas fa-layer-group"></i><h3>Poster Design</h3></div>
+            <div class="card" onclick="openModal('card')"><i class="fas fa-id-card"></i><h3>Business Cards</h3></div>
+            <div class="card" onclick="openModal('invitation')"><i class="fas fa-envelope-open-text"></i><h3>Invitations</h3></div>
+            <div class="card" onclick="openModal('photo')"><i class="fas fa-camera"></i><h3>Photography</h3></div>
+            <div class="card" onclick="openModal('video_edit')"><i class="fas fa-film"></i><h3>Video Editing</h3></div>
+            <div class="card" onclick="openModal('video_rec')"><i class="fas fa-video"></i><h3>Video Recording</h3></div>
+            <div class="card" onclick="openModal('web')"><i class="fas fa-code"></i><h3>Web Design</h3></div>
+            <div class="card" onclick="openModal('presentation')"><i class="fas fa-desktop"></i><h3>Presentations</h3></div>
+            <div class="card" onclick="openModal('social')"><i class="fas fa-hashtag"></i><h3>S.M. Management</h3></div>
         </div>
     </section>
 
     <div id="detailsModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalBody">
-                </div>
+            <div id="modalBody"></div>
             <p class="disclaimer">*Prices are formed depending on the complexity of the project.</p>
         </div>
     </div>
@@ -83,13 +60,13 @@
         <div class="contact-container">
             <h2>Quick Contact</h2>
             <div class="form-wrapper">
-                <textarea id="msg" placeholder="Write your message..."></textarea>
-                <button type="button" onclick="sendWA()" class="whatsapp-btn">SEND TO WHATSAPP</button>
+                <textarea id="msg" placeholder="Upišite poruku..."></textarea>
+                <button type="button" onclick="sendWA()" class="whatsapp-btn">POŠALJI NA WHATSAPP</button>
             </div>
             <div class="contact-info">
-                <p><i class="fas fa-phone"></i> <span>+387 65 959 096</span></p>
-                <p><i class="fas fa-envelope"></i> <span>nexa.info2@gmail.com</span></p>
-                <p><i class="fab fa-instagram"></i> <span>@nexa_studio2</span></p>
+                <p><i class="fas fa-phone"></i> +387 65 959 096</p>
+                <p><a href="mailto:balkaneditlogoless@gmail.com"><i class="fas fa-envelope"></i> balkaneditlogoless@gmail.com</a></p>
+                <p><a href="https://www.instagram.com/nexa_studio2" target="_blank"><i class="fab fa-instagram"></i> @nexa_studio2</a></p>
             </div>
         </div>
     </section>
