@@ -1,30 +1,29 @@
-// Inicijalizacija AOS animacija
+// Init Animations
 AOS.init({
     duration: 1000,
-    once: true,
-    easing: 'ease-in-out'
+    once: false,
+    mirror: true
 });
 
-// Smooth scroll za navigaciju
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+// WhatsApp Function
+function sendWA() {
+    const msg = document.getElementById('msg').value;
+    const phone = "38765959096";
+    if(msg.trim() !== "") {
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    } else {
+        alert("Please enter a message.");
+    }
+}
 
-// Promena providnosti navigacije na scroll
+// Navbar Scroll Effect
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
-        nav.style.background = 'rgba(0,0,0,0.9)';
-        nav.style.padding = '15px 8%';
+        nav.style.background = 'rgba(0,0,0,0.95)';
+        nav.style.padding = '20px 10%';
     } else {
         nav.style.background = 'transparent';
-        nav.style.padding = '30px 8%';
+        nav.style.padding = '40px 10%';
     }
-});;
-    }
-};
+});
