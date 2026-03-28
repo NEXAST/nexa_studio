@@ -1,19 +1,20 @@
 const projectData = {
-    'logo': { title: 'Logo Design', images: ['logo1.jpg'], price: 'Starting from €50' },
-    'poster': { title: 'Poster Design', images: ['poster1.jpg'], price: 'Starting from €30' },
-    'card': { title: 'Business Cards', images: ['card1.jpg'], price: 'Starting from €25' },
-    'invitation': { title: 'Invitations', images: ['image_a7e622.png', 'image_a7e73b.png'], price: 'Starting from €20' },
-    'photo': { title: 'Photography', images: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg'], price: 'Price by agreement' },
-    'video_edit': { title: 'Video Editing', images: [], price: 'Starting from €30', note: 'Portfolio coming soon' },
+    'logo': { title: 'Logo Design', price: 'From €50', note: 'Creating unique, memorable visual identities.' },
+    'poster': { title: 'Poster Design', price: 'From €30', note: 'Eye-catching posters for events and marketing.' },
+    'card': { title: 'Business Cards', price: 'From €25', note: 'Professional cards for an impact.' },
+    'invitation': { title: 'Invitations', price: 'From €20', note: 'Custom designs for your special occasions.' },
+    'photo': { title: 'Photography', price: 'Price by Agreement', note: 'BiH regional focus.' },
+    'video_edit': { title: 'Video Editing', price: 'Price by Agreement', note: 'Professional editing for impactful media.' },
+    // Video Recording with proper YouTube link
     'video_rec': { 
         title: 'Video Recording', 
-        images: [], 
-        price: '€50 / per hour (Available only in BiH)', 
-        link: 'https://www.youtube.com/@kklider' 
+        price: '€50 / hour (within BiH)', 
+        link: 'https://www.youtube.com/@kkliderkanal' 
     },
-    'web': { title: 'Web Design', images: [], price: 'Starting from €100', note: 'Portfolio coming soon' },
-    'presentation': { title: 'Presentations', images: [], price: 'Starting from €30', note: 'Portfolio coming soon' },
-    'marketing': { title: 'Marketing Products', images: [], price: 'Price by agreement', note: 'Custom prints: Mugs, Pens, Lighters, etc.' }
+    'web': { title: 'Web Design', price: 'Price by Agreement', note: 'Modern, responsive, user-friendly websites.' },
+    'presentation': { title: 'Presentations', price: 'Price by Agreement', note: 'Compelling pitch decks and slides.' },
+    // Custom Merch
+    'marketing': { title: 'Custom Merchandising', price: 'Price by Agreement', note: 'Pens, Mugs, Lighters, Magnets, etc.' }
 };
 
 function openModal(cat) {
@@ -21,22 +22,16 @@ function openModal(cat) {
     const m = document.getElementById('detailsModal');
     const b = document.getElementById('modalBody');
     
-    let imgsHtml = '';
-    if (d.images && d.images.length > 0) {
-        imgsHtml = `<div class="modal-img-container">` + 
-                   d.images.map(i => `<img src="${i}" onerror="this.src='https://via.placeholder.com/150/000/d4af37?text=Nexa'">`).join('') + 
-                   `</div>`;
-    } else if (d.note) {
-        imgsHtml = `<p style="color: #666; margin: 20px 0; font-style: italic;">${d.note}</p>`;
+    let contentHtml = `<p class="modal-body">${d.note || ''}</p>`;
+    // Add YouTube link for Video Recording
+    if (d.link) {
+        contentHtml += `<a href="${d.link}" target="_blank" class="cta-btn" style="margin-top:20px; display:inline-block; font-size: 0.8rem;">Watch on YouTube</a>`;
     }
-
-    let linkHtml = d.link ? `<br><a href="${d.link}" target="_blank" class="cta-btn" style="margin-top:20px; display:inline-block; font-size: 0.8rem;">Visit YouTube Channel</a>` : '';
 
     b.innerHTML = `
         <h2 style="color:#d4af37; letter-spacing: 2px;">${d.title}</h2>
-        ${imgsHtml}
+        ${contentHtml}
         <p class="modal-price">${d.price}</p>
-        ${linkHtml}
     `;
     m.style.display = "block";
 }
@@ -46,5 +41,9 @@ window.onclick = function(e) { if(e.target == document.getElementById('detailsMo
 
 function sendWA() {
     const msg = document.getElementById('msg').value;
-    if(msg.trim()) window.open(`https://wa.me/38765959096?text=${encodeURIComponent(msg)}`, '_blank');
+    if(msg.trim()) {
+        window.open(`https://wa.me/38765959096?text=${encodeURIComponent(msg)}`, '_blank');
+    } else {
+        alert("Please enter a message.");
+    }
 }
