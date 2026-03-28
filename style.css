@@ -1,62 +1,56 @@
-:root {
-    --gold: #d4af37;
-    --black: #000000;
-    --dark-grey: #0c0c0c;
-}
-
+:root { --gold: #d4af37; --black: #000000; --dark: #0a0a0a; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Poppins', sans-serif; background: var(--black); color: white; scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: var(--black); color: white; line-height: 1.6; }
 
-/* Nav */
-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; position: fixed; width: 100%; z-index: 1000; background: rgba(0,0,0,0.9); border-bottom: 1px solid #1a1a1a; }
-.nav-logo-img { height: 45px; }
-.logo-text { color: var(--gold); font-weight: 700; letter-spacing: 2px; margin-left: 10px; }
-.nav-links { display: flex; list-style: none; gap: 25px; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; z-index: 1000; background: rgba(0,0,0,0.95); border-bottom: 1px solid #1a1a1a; }
+.nav-logo-img { height: 40px; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { text-decoration: none; color: white; font-size: 0.8rem; letter-spacing: 1px; }
 
-/* Hero - Popravljeno dugme */
-.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
-.main-hero-logo { height: 100px; margin-bottom: 20px; }
-.hero h1 { font-size: 4.5rem; color: var(--gold); letter-spacing: 8px; line-height: 1; }
-.subtitle { font-size: 1.3rem; letter-spacing: 4px; margin: 15px 0; }
-.tagline { color: #666; font-size: 0.75rem; margin-bottom: 30px; letter-spacing: 2px; }
-.cta-btn { padding: 12px 35px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; display: inline-block; transition: 0.3s; }
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 5%; }
+.main-hero-logo { height: 110px; margin-bottom: 35px; }
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--gold); letter-spacing: 10px; margin-bottom: 15px; }
+.subtitle { font-size: 1.3rem; letter-spacing: 5px; margin-bottom: 10px; }
+.tagline { color: #555; font-size: 0.75rem; margin-bottom: 45px; max-width: 600px; }
+.cta-btn { padding: 14px 35px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; }
 .cta-btn:hover { background: var(--gold); color: black; }
 
-/* Grid & Cards */
-section { padding: 100px 10%; }
-.section-title { text-align: center; margin-bottom: 60px; color: var(--gold); font-size: 2.2rem; letter-spacing: 3px; }
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.card { background: var(--dark-grey); padding: 40px; text-align: center; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
+section { padding: 120px 8%; }
+.section-title { text-align: center; margin-bottom: 60px; color: var(--gold); font-size: 2.5rem; letter-spacing: 4px; }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.card { background: var(--dark); padding: 35px; text-align: center; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
 .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-.card i, .card-icon-img { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; height: 50px; }
-.price-hint { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; margin-top: 10px; }
+.card i { font-size: 2.2rem; color: var(--gold); margin-bottom: 15px; }
 
-/* Modal Dizajn (40% ekrana) */
+/* MODAL FIKSIRAN NA 50% */
 .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
-.modal-content { background: #111; margin: 5% auto; padding: 40px; border: 1px solid var(--gold); width: 50%; max-width: 800px; position: relative; text-align: center; }
-.close { position: absolute; right: 20px; top: 10px; color: var(--gold); font-size: 30px; cursor: pointer; }
-.modal-img-container { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-.modal-img-container img { width: 120px; height: 120px; object-fit: cover; border: 1px solid #333; cursor: pointer; }
-.modal-price { font-size: 1.5rem; color: var(--gold); font-weight: 700; margin: 15px 0; }
-.disclaimer { font-size: 0.7rem; color: #555; font-style: italic; }
+.modal-content { 
+    background: #0f0f0f; 
+    margin: 5% auto; 
+    padding: 40px; 
+    border: 1px solid var(--gold); 
+    width: 50%; /* Ne ide preko celog ekrana */
+    max-width: 800px; 
+    text-align: center; 
+    box-shadow: 0 0 50px rgba(0,0,0,1);
+}
+.close { color: var(--gold); float: right; font-size: 35px; font-weight: bold; cursor: pointer; line-height: 0.5; }
+.modal-img-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 25px 0; }
+.modal-img-container img { width: 150px; height: 150px; object-fit: cover; border: 1px solid #333; transition: 0.3s; }
+.modal-img-container img:hover { border-color: var(--gold); }
+.modal-price { font-size: 1.8rem; color: var(--gold); font-weight: 700; }
 
-/* Kontakt - Zlatni okviri */
-.contact-container { max-width: 700px; margin: 0 auto; text-align: center; }
-.form-wrapper { border: 1px solid var(--gold); padding: 30px; margin-bottom: 40px; background: var(--dark-grey); }
-textarea { width: 100%; background: #000; border: 1px solid #333; color: white; padding: 15px; height: 150px; outline: none; transition: 0.3s; font-family: inherit; }
-textarea:focus { border-color: var(--gold); }
-.whatsapp-btn { width: 100%; padding: 15px; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-weight: 700; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+.contact-container { max-width: 750px; margin: 0 auto; text-align: center; }
+.form-wrapper { border: 2px solid var(--gold); padding: 40px; background: var(--dark); margin-bottom: 50px; }
+textarea { width: 100%; background: #000; border: 1px solid #333; color: white; padding: 20px; height: 140px; outline: none; font-family: inherit; font-size: 1rem; }
+.whatsapp-btn { width: 100%; padding: 18px; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-weight: 700; cursor: pointer; margin-top: 25px; transition: 0.3s; letter-spacing: 2px; }
 .whatsapp-btn:hover { background: var(--gold); color: black; }
 
-/* Povećane Kontakt Informacije */
-.contact-info p { font-size: 1.2rem; margin: 15px 0; letter-spacing: 1px; }
-.contact-info i { color: var(--gold); margin-right: 15px; }
-.contact-info span { font-weight: 300; }
+.contact-info a { text-decoration: none; color: inherit; transition: 0.3s; }
+.contact-info a:hover { color: var(--gold); }
+.contact-info p { font-size: 1.5rem; margin: 25px 0; letter-spacing: 1px; }
+.contact-info i { color: var(--gold); margin-right: 15px; width: 30px; text-align: center; }
 
-.floating-wa { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; color: white; text-decoration: none; z-index: 1000; }
+.floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; text-decoration: none; }
 
-@media (max-width: 768px) {
-    .modal-content { width: 90%; }
-    .hero h1 { font-size: 2.8rem; }
-}
+@media (max-width: 992px) { .modal-content { width: 85%; } }
