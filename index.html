@@ -1,80 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXA | Graphic Design Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Manrope:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Nexa Studio | Premium Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <div class="nav-container">
-            <img src="nexa studio logo 1.svg" alt="Nexa Logo" class="nav-logo-svg">
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Offers</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="logo">NEXA<span>STUDIO</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Početna</a></li>
+            <li><a href="#services">Usluge</a></li>
+            <li><a href="#about">O nama</a></li>
+            <li><a href="#gallery">Galerija</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
         </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="corner top-left"></div>
-        <div class="corner top-right"></div>
-        <div class="corner bottom-left"></div>
-        <div class="corner bottom-right"></div>
-
+    <section id="home" class="hero">
         <div class="hero-content">
-            <img src="nexa studio logo 1.svg" alt="Nexa Logo" class="main-vector-logo">
-            <h1 class="nexa-title">NEXA</h1>
-            <h2 class="main-subtitle">Graphic Design Studio</h2>
-            <p class="hero-description">A FUSION OF CREATIVITY, STYLE, AND CONTEMPORARY DESIGN.</p>
-            <a href="#services" class="gold-cta-btn">View Offers</a>
-        </div>
-    </header>
-
-    <section id="services">
-        <h2 class="section-title">Our Expertise</h2>
-        <div class="services-grid">
-            <div class="service-card" onclick="openModal('logo')"><i class="fas fa-pen-nib"></i><h3>Logo Design</h3></div>
-            <div class="service-card" onclick="openModal('poster')"><i class="fas fa-layer-group"></i><h3>Poster Design</h3></div>
-            <div class="service-card" onclick="openModal('card')"><i class="fas fa-address-card"></i><h3>Business Cards</h3></div>
-            <div class="service-card" onclick="openModal('invitation')"><i class="fas fa-envelope-open-text"></i><h3>Invitations</h3></div>
-            <div class="service-card" onclick="openModal('photo')"><i class="fas fa-camera"></i><h3>Photography</h3></div>
-            <div class="service-card" onclick="openModal('video')"><i class="fas fa-video"></i><h3>Video Editing</h3></div>
-            <div class="service-card" onclick="openModal('web')"><i class="fas fa-code"></i><h3>Web Design</h3></div>
-            <div class="service-card" onclick="openModal('presentation')"><i class="fas fa-chalkboard-teacher"></i><h3>Presentations</h3></div>
-            <div class="service-card" onclick="openModal('social')"><i class="fas fa-hashtag"></i><h3>Social Media Management</h3></div>
+            <h1>Kreiramo digitalnu <br><span class="highlight">budućnost.</span></h1>
+            <p>Vrhunski web dizajn i razvoj softvera prilagođen vašem biznisu.</p>
+            <a href="#contact" class="cta-btn">Započni projekat</a>
         </div>
     </section>
 
-    <div id="portfolioModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div id="modalGallery" class="modal-gallery"></div>
-            <p id="modalPrice" class="price-tag"></p>
-        </div>
-    </div>
-
-    <section id="contact">
-        <div class="contact-box">
-            <h2 class="section-title" style="font-size: 1.5rem;">Quick Contact</h2>
-            <textarea id="waMessage" placeholder="Upišite poruku..."></textarea>
-            <button onclick="sendWhatsApp()" class="gold-cta-btn" style="position: static; margin-top: 10px;">Pošalji na WhatsApp</button>
-            
-            <div class="contact-info">
-                <p><i class="fas fa-phone"></i> +387 65 959 096</p>
-                <p><i class="fas fa-envelope"></i> balkaneditlogoless@gmail.com</p>
-                <p><a href="https://instagram.com/nexa_studio2" target="_blank" class="insta-link"><i class="fab fa-instagram"></i> @nexa_studio2</a></p>
+    <section id="services" class="services">
+        <h2 class="section-title">Naše Usluge</h2>
+        <div class="services-container">
+            <div class="service-box">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web Development</h3>
+                <p>Izrada modernih i brzih sajtova koristeći najnovije tehnologije.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-paint-brush"></i>
+                <h3>UI/UX Dizajn</h3>
+                <p>Korisničko iskustvo koje prodaje i vizuelni identitet koji se pamti.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-chart-line"></i>
+                <h3>Digitalni Marketing</h3>
+                <p>Strategije koje povećavaju vašu vidljivost i prodaju na mreži.</p>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/38765959096" class="whatsapp-btn gold-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <section id="about" class="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Nexa Studio Kancelarija">
+        </div>
+        <div class="about-text">
+            <h2>Ko smo mi?</h2>
+            <p>Nexa Studio je tim entuzijasta, dizajnera i developera. Verujemo da svaki piksel ima svoju svrhu i da dizajn treba da bude funkcionalan koliko i lep.</p>
+            <button class="secondary-btn">Saznaj više</button>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Naši Radovi</h2>
+        <div class="grid-container">
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="Projekat 1"></div>
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=500&q=80" alt="Projekat 2"></div>
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=500&q=80" alt="Projekat 3"></div>
+            <div class="grid-item"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=500&q=80" alt="Projekat 4"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Kontaktirajte nas</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Vaše Ime" required>
+            <input type="email" placeholder="Vaš Email" required>
+            <textarea placeholder="Vaša Poruka" rows="5" required></textarea>
+            <button type="submit" class="cta-btn">Pošalji</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nexa Studio. Sva prava zadržana.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
