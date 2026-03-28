@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexa Studio | Premium Design</title>
+    <title>Nexa Studio | Premium Graphic Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -11,10 +11,6 @@
 <body>
 
     <nav>
-        <div class="logo">
-            <img src="edited-image.png" alt="Nexa Logo" class="nav-logo-img">
-            <span class="logo-text">NEXA</span>
-        </div>
         <ul class="nav-links">
             <li><a href="#home">HOME</a></li>
             <li><a href="#offers">OFFERS</a></li>
@@ -24,7 +20,6 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <img src="edited-image.png" alt="Main Logo" class="main-hero-logo">
             <h1>NEXA</h1>
             <p class="subtitle">GRAPHIC DESIGN STUDIO</p>
             <p class="tagline">A FUSION OF CREATIVITY, STYLE, AND CONTEMPORARY DESIGN</p>
@@ -46,13 +41,16 @@
             <div class="card" onclick="openModal('presentation')"><i class="fas fa-desktop"></i><h3>Presentations</h3></div>
             <div class="card" onclick="openModal('marketing')"><i class="fas fa-box-open"></i><h3>Marketing Products</h3></div>
         </div>
+        <div class="portfolio-message">
+            <p>For more work, check out our <a href="https://www.instagram.com/nexa_studio2" target="_blank">Instagram</a></p>
+        </div>
     </section>
 
     <div id="detailsModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="modalBody"></div>
-            <p class="disclaimer">*Prices are formed depending on project complexity.</p>
+            <p class="disclaimer">*Prices formed depending on project complexity.</p>
         </div>
     </div>
 
