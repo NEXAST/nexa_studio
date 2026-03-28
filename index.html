@@ -12,7 +12,7 @@
 
     <nav>
         <div class="logo">
-            <img src="edited-image.png" alt="Nexa Logo" class="nav-logo-img">
+            <img src="edited-image.png" alt="Nexa Logo" class="nav-logo-img" onerror="this.style.display='none'">
             <span class="logo-text">NEXA</span>
         </div>
         <ul class="nav-links">
@@ -24,7 +24,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <img src="edited-image.png" alt="Main Logo" class="main-hero-logo">
+            <img src="edited-image.png" alt="Main Logo" class="main-hero-logo" onerror="this.style.display='none'">
             <h1>NEXA</h1>
             <p class="subtitle">GRAPHIC DESIGN STUDIO</p>
             <p class="tagline">A FUSION OF CREATIVITY, STYLE, AND CONTEMPORARY DESIGN</p>
@@ -44,7 +44,7 @@
             <div class="card" onclick="openModal('video_rec')"><i class="fas fa-video"></i><h3>Video Recording</h3></div>
             <div class="card" onclick="openModal('web')"><i class="fas fa-code"></i><h3>Web Design</h3></div>
             <div class="card" onclick="openModal('presentation')"><i class="fas fa-desktop"></i><h3>Presentations</h3></div>
-            <div class="card" onclick="openModal('social')"><i class="fas fa-hashtag"></i><h3>S.M. Management</h3></div>
+            <div class="card" onclick="openModal('marketing')"><i class="fas fa-box-open"></i><h3>Marketing Products</h3></div>
         </div>
     </section>
 
@@ -52,16 +52,16 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="modalBody"></div>
-            <p class="disclaimer">*Cijene se formiraju zavisno od kompleksnosti projekta.</p>
+            <p class="disclaimer">*Prices are formed depending on project complexity. Regional rates may apply.</p>
         </div>
     </div>
 
     <section id="contact" class="contact">
         <div class="contact-container">
-            <h2>Kontakt</h2>
+            <h2>Quick Contact</h2>
             <div class="form-wrapper">
-                <textarea id="msg" placeholder="Upišite vašu poruku..."></textarea>
-                <button type="button" onclick="sendWA()" class="whatsapp-btn">POŠALJI NA WHATSAPP</button>
+                <textarea id="msg" placeholder="Write your message..."></textarea>
+                <button type="button" onclick="sendWA()" class="whatsapp-btn">SEND TO WHATSAPP</button>
             </div>
             <div class="contact-info">
                 <p><i class="fas fa-phone"></i> +387 65 959 096</p>
