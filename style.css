@@ -1,52 +1,231 @@
-:root { --gold: #d4af37; --dark: #000000; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Manrope', sans-serif; background-color: var(--dark); color: white; scroll-behavior: smooth; overflow-x: hidden; }
-
-/* NAV - FIX */
-nav { 
-    width: 100%; position: fixed; top: 0; z-index: 1000; 
-    background: rgba(0, 0, 0, 0.95); padding: 15px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+:root {
+    --gold: #d4af37;
+    --dark-bg: #000000;
+    --card-bg: #0a0a0a;
+    --text-light: #ffffff;
+    --gray: #a0a0a0;
 }
-.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-.nav-logo-svg { height: 30px; }
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { text-decoration: none; color: white; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
 
-/* HERO - FULL CENTERING */
-.hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; background: #000; }
-.hero-content { text-align: center; display: flex; flex-direction: column; align-items: center; z-index: 5; }
-.main-vector-logo { width: 100px; margin-bottom: 15px; }
-.nexa-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--gold); letter-spacing: 10px; margin: 0; }
-.main-subtitle { font-family: 'Cinzel', serif; font-size: clamp(1rem, 3vw, 1.5rem); color: var(--gold); letter-spacing: 4px; }
-.hero-description { font-size: 0.7rem; letter-spacing: 2px; color: #888; margin-top: 15px; max-width: 500px; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* MODAL - SMALL IMAGES FIX */
-.modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); overflow-y: auto; }
-.modal-content { background: #050505; margin: 50px auto; padding: 30px; width: 90%; max-width: 800px; border: 1px solid var(--gold); position: relative; }
-.modal-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; }
-.modal-gallery img { width: 150px; height: auto; border: 1px solid #222; object-fit: contain; } /* MALE SLIKE */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
 
-/* KONTAKT */
-#contact { padding: 80px 5%; text-align: center; background: #050505; }
-.contact-box { max-width: 600px; margin: 0 auto; }
-#waMessage { width: 100%; height: 80px; background: #000; border: 1px solid #222; color: white; padding: 10px; margin-top: 20px; }
-.insta-link { color: white; text-decoration: none; }
-.insta-link:hover { color: var(--gold); }
-.gold-wa { background: var(--gold) !important; color: black !important; }
+/* Navigacija - Veći Logo */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 8%;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
 
-/* CORNERS */
-.corner { position: absolute; width: 60px; height: 60px; border: 1px solid var(--gold); opacity: 0.4; }
-.top-left { top: 20px; left: 20px; border-right: none; border-bottom: none; }
-.top-right { top: 20px; right: 20px; border-left: none; border-bottom: none; }
-.bottom-left { bottom: 20px; left: 20px; border-right: none; border-top: none; }
-.bottom-right { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+.nav-logo-img {
+    height: 60px; /* Povećano */
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
 
-.gold-cta-btn { margin-top: 25px; padding: 10px 30px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; transition: 0.3s; background: transparent; cursor: pointer; }
-.gold-cta-btn:hover { background: var(--gold); color: #000; }
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
 
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; padding: 50px 0; }
-.service-card { padding: 30px; background: #080808; border: 1px solid #111; cursor: pointer; text-align: center; }
-.service-card i { color: var(--gold); font-size: 25px; margin-bottom: 10px; }
-.price-tag { color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.5rem; margin-top: 15px; }
-.close-btn { position: absolute; right: 15px; top: 10px; font-size: 30px; color: var(--gold); cursor: pointer; }
-.whatsapp-btn { position: fixed; bottom: 25px; right: 25px; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; z-index: 1000; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+/* Hero Sekcija */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+}
+
+.main-hero-logo {
+    height: 120px; /* Povećano */
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    letter-spacing: 15px;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+
+.tagline {
+    color: var(--gray);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.cta-btn {
+    padding: 12px 40px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    transition: 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cta-btn:hover {
+    background: var(--gold);
+    color: black;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Expertise - Bolji razmaci */
+.expertise {
+    padding: 150px 10%;
+}
+
+.section-title {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-bottom: 80px;
+    border-left: 4px solid var(--gold);
+    padding-left: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Veći razmak za "prozračnost" */
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 50px 30px;
+    text-align: center;
+    border: 1px solid #1a1a1a;
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    border-color: var(--gold);
+    transform: translateY(-10px);
+}
+
+.card i {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 25px;
+}
+
+.card-custom-img {
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.price {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.desc {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+/* Contact */
+.contact {
+    padding: 100px 10%;
+    background: #050505;
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-container h2 { margin-bottom: 40px; font-size: 2rem; }
+
+textarea {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-family: inherit;
+    resize: none;
+}
+
+.whatsapp-btn {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: var(--gold);
+    color: black;
+}
+
+.contact-info {
+    margin-top: 40px;
+    color: var(--gray);
+}
+
+.contact-info p { margin-bottom: 10px; }
+.contact-info i { color: var(--gold); margin-right: 10px; }
+
+/* Floating WA */
+.floating-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--gold);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: black;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
