@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexa Studio | Premium Graphic Design</title>
+    <title>Nexa Studio | Premium Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
         <div class="logo">
-            <img src="edited-image.png" alt="Nexa Logo" class="nav-logo-img" onerror="this.src='https://via.placeholder.com/150x50/000000/d4af37?text=NEXA'">
+            <img src="edited-image.png" alt="Nexa Logo" class="nav-logo-img" onerror="this.style.display='none'">
+            <span class="logo-text">NEXA</span>
         </div>
         <ul class="nav-links">
             <li><a href="#home">HOME</a></li>
@@ -24,34 +24,34 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content" data-aos="zoom-in" data-aos-duration="1500">
-            <img src="edited-image.png" alt="Main Logo" class="main-hero-logo" onerror="this.src='https://via.placeholder.com/200x200/000000/d4af37?text=NEXA'">
-            <h1>NEXA</h1>
-            <p class="subtitle">GRAPHIC DESIGN STUDIO</p>
-            <p class="tagline">A FUSION OF CREATIVITY, STYLE, AND CONTEMPORARY DESIGN</p>
-            <a href="#offers" class="cta-btn">View Offers</a>
+        <div class="hero-content">
+            <img src="edited-image.png" alt="Main Logo" class="main-hero-logo" onerror="this.style.display='none'">
+            <h1 class="fade-in">NEXA</h1>
+            <p class="subtitle fade-in">GRAPHIC DESIGN STUDIO</p>
+            <p class="tagline fade-in">A FUSION OF CREATIVITY, STYLE, AND CONTEMPORARY DESIGN</p>
+            <a href="#offers" class="cta-btn fade-in">View Offers</a>
         </div>
     </section>
 
     <section id="offers" class="expertise">
-        <h2 class="section-title" data-aos="fade-right">Our Expertise</h2>
+        <h2 class="section-title">Our Expertise</h2>
         <div class="grid-container">
-            <div class="card" data-aos="fade-up">
+            <div class="card">
                 <i class="fas fa-pen-nib"></i>
                 <h3>Logo Design</h3>
                 <p class="price">Starting from $150</p>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
                 <i class="fas fa-layer-group"></i>
                 <h3>Poster Design</h3>
                 <p class="price">Starting from $80</p>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <img src="sdfvbf.png" alt="Video" class="card-icon-img" onerror="this.src='https://via.placeholder.com/50/000/d4af37?text=VIDEO'">
+            <div class="card">
+                <img src="sdfvbf.png" alt="Video" class="card-icon-img" onerror="this.src='https://via.placeholder.com/50/000/d4af37?text=V'">
                 <h3>Video Recording</h3>
                 <p class="price">$200 - $1000</p>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
                 <i class="fas fa-mug-hot"></i>
                 <h3>Custom Merchandising</h3>
                 <p class="desc">Mugs, Lighters, Magnets</p>
@@ -61,26 +61,25 @@
     </section>
 
     <section id="gallery" class="gallery">
-        <h2 class="section-title" data-aos="fade-up">Recent Works</h2>
+        <h2 class="section-title">Recent Works</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item" data-aos="zoom-in"><img src="card1.jpg" alt="Card 1"></div>
-            <div class="portfolio-item" data-aos="zoom-in"><img src="poster1.jpg" alt="Poster 1"></div>
-            <div class="portfolio-item" data-aos="zoom-in"><img src="logo1.jpg" alt="Logo 1"></div>
-            <div class="portfolio-item" data-aos="zoom-in"><img src="invitation1.jpg" alt="Invitation 1"></div>
-            <div class="portfolio-item" data-aos="zoom-in"><img src="card2.jpg" alt="Card 2"></div>
-            <div class="portfolio-item" data-aos="zoom-in"><img src="poster2.jpg" alt="Poster 2"></div>
+            <div class="portfolio-item"><img src="card1.jpg" alt="Work 1"></div>
+            <div class="portfolio-item"><img src="poster1.jpg" alt="Work 2"></div>
+            <div class="portfolio-item"><img src="logo1.jpg" alt="Work 3"></div>
+            <div class="portfolio-item"><img src="invitation1.jpg" alt="Work 4"></div>
+            <div class="portfolio-item"><img src="card2.jpg" alt="Work 5"></div>
+            <div class="portfolio-item"><img src="poster2.jpg" alt="Work 6"></div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <div class="contact-container" data-aos="fade-up">
+        <div class="contact-container">
             <h2>Quick Contact</h2>
             <form class="contact-form">
                 <textarea id="msg" placeholder="Write your message..." required></textarea>
                 <button type="button" onclick="sendWA()" class="whatsapp-btn">Send to WhatsApp</button>
             </form>
             <div class="contact-info">
-                <p><i class="fas fa-phone"></i> +387 65 959 096</p>
                 <p><i class="fas fa-envelope"></i> nexa.info2@gmail.com</p>
                 <p><i class="fab fa-instagram"></i> @nexa_studio2</p>
             </div>
@@ -89,7 +88,6 @@
 
     <a href="https://wa.me/38765959096" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
