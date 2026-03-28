@@ -1,76 +1,59 @@
-// Podaci o uslugama, cenama i slikama
-const serviceData = {
-    'logo': { title: 'Logo Design', price: '25€ - 250€', images: ['logo1.jpg', 'logo2.jpg', 'logo3.jpg'] },
-    'poster': { title: 'Poster Design', price: '15€ - 100€', images: ['poster1.jpg', 'poster2.jpg', 'poster3.jpg'] },
-    'card': { title: 'Business Cards', price: '10€ - 60€', images: ['card1.jpg', 'card2.jpg'] },
-    'invitation': { title: 'Invitations', price: '10€ - 80€', images: ['invitation1.jpg', 'invitation2.jpg'] },
-    'photo': { title: 'Photography', price: '25€ - 300€', images: [] },
-    'video': { title: 'Video Editing', price: '20€ - 400€', images: [] },
-    'web': { title: 'Web Design', price: '150€ - 800€', images: [], link: 'https://nexast.github.io/UKTBIH/' },
-    'presentation': { title: 'Presentations', price: '30€ - 150€', images: [] },
-    'social': { title: 'Social Media Management', price: 'Po dogovoru', images: [] }
+const projectData = {
+    'logo': { title: 'Logo Design', images: ['logo1.jpg', 'logo2.jpg'], price: 'Od €50' },
+    'poster': { title: 'Poster Design', images: ['poster1.jpg', 'poster2.jpg'], price: 'Od €20' },
+    'card': { title: 'Business Cards', images: ['card1.jpg'], price: 'Od €25' },
+    'invitation': { 
+        title: 'Invitations', 
+        images: ['image_a7e622.png', 'image_a7e73b.png'], 
+        price: 'Od €20' 
+    },
+    'photo': { 
+        title: 'Photography', 
+        images: ['image_a8631b.jpg', 'image_a865c7.jpg', 'image_a86604.jpg'], 
+        price: 'Dostupno samo u BiH' 
+    },
+    'video_edit': { title: 'Video Editing', images: [], price: 'Po dogovoru', note: 'Radovi uskoro' },
+    'video_rec': { 
+        title: 'Video Recording', 
+        images: [], // Nema slike, nema okvira
+        price: '€50 / 1h (Dostupno samo u BiH)', 
+        link: 'https://www.youtube.com/@kklider' 
+    },
+    'web': { title: 'Web Design', images: [], price: 'Od €200', note: 'Radovi uskoro' },
+    'presentation': { title: 'Presentations', images: [], price: 'Od €30', note: 'Radovi uskoro' },
+    'social': { title: 'S.M. Management', images: [], price: 'Po dogovoru', note: 'Strategija za vaš brend' }
 };
 
-// Funkcija za otvaranje prozora (modala)
-function openModal(key) {
-    const data = serviceData[key];
-    const modal = document.getElementById('portfolioModal');
-    const title = document.getElementById('modalTitle');
-    const price = document.getElementById('modalPrice');
-    const gallery = document.getElementById('modalGallery');
-
-    // Postavljanje naslova i cene
-    title.innerText = data.title;
-    price.innerText = data.price;
-    gallery.innerHTML = ''; // Čišćenje prethodnih slika
-
-    // Poseban tretman za Web Design (link umesto slika)
-    if(key === 'web') {
-        gallery.innerHTML = `<div style="width:100%; padding:20px;"><a href="${data.link}" target="_blank" class="gold-cta-btn" style="position:static;">Pogledaj sajt uživo</a></div>`;
-    } 
-    // Ako ima slika, dodaj ih u galeriju
-    else if (data.images && data.images.length > 0) {
-        data.images.forEach(src => {
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = data.title;
-            // Dodajemo mogućnost klika na sliku da se uveća (opciono)
-            img.onclick = () => window.open(src, '_blank');
-            gallery.appendChild(img);
-        });
-    } else {
-        gallery.innerHTML = '<p style="color: #666; padding: 20px; width: 100%;">Primjeri radova stižu uskoro...</p>';
-    }
-
-    // Prikaži modal i resetuj skrol na vrh
-    modal.style.display = 'block';
-    modal.scrollTop = 0;
-    document.body.style.overflow = 'hidden'; // Zabrani skrolovanje pozadine
-}
-
-// Funkcija za zatvaranje prozora
-function closeModal() {
-    document.getElementById('portfolioModal').style.display = 'none';
-    document.body.style.overflow = 'auto'; // Vrati skrolovanje pozadine
-}
-
-// Funkcija za slanje poruke na WhatsApp
-function sendWhatsApp() {
-    const msg = document.getElementById('waMessage').value;
-    const phone = "38765959096";
+function openModal(cat) {
+    const d = projectData[cat];
+    const m = document.getElementById('detailsModal');
+    const b = document.getElementById('modalBody');
     
-    if(msg.trim() !== "") {
-        const encodedMsg = encodeURIComponent(msg);
-        window.open(`https://wa.me/${phone}?text=${encodedMsg}`, '_blank');
-    } else {
-        alert("Molimo unesite poruku pre slanja.");
+    let imgsHtml = '';
+    // Prikazujemo slike samo ako postoje u nizu
+    if (d.images && d.images.length > 0) {
+        imgsHtml = `<div class="modal-img-container">` + 
+                   d.images.map(i => `<img src="${i}" onerror="this.src='https://via.placeholder.com/150/000/d4af37?text=Rad'">`).join('') + 
+                   `</div>`;
+    } else if (d.note) {
+        imgsHtml = `<p style="color: #555; margin: 20px 0; font-style: italic;">${d.note}</p>`;
     }
+
+    let linkHtml = d.link ? `<br><a href="${d.link}" target="_blank" class="cta-btn" style="margin-top:20px; display:inline-block; font-size: 0.8rem;">Posjetite YouTube kanal</a>` : '';
+
+    b.innerHTML = `
+        <h2 style="color:#d4af37">${d.title}</h2>
+        ${imgsHtml}
+        <p class="modal-price">${d.price}</p>
+        ${linkHtml}
+    `;
+    m.style.display = "block";
 }
 
-// Zatvori modal ako korisnik klikne bilo gde van crnog okvira
-window.onclick = function(event) {
-    const modal = document.getElementById('portfolioModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-};
+function closeModal() { document.getElementById('detailsModal').style.display = "none"; }
+window.onclick = function(e) { if(e.target == document.getElementById('detailsModal')) closeModal(); }
+
+function sendWA() {
+    const msg = document.getElementById('msg').value;
+    if(msg.trim()) window.open(`https://wa.me/38765959096?text=${encodeURIComponent(msg)}`, '_blank');
+}
